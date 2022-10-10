@@ -130,3 +130,20 @@ async def on_message(message):
     
 # Bot起動
 client.run(TOKEN)
+
+#崁入式訊息
+const lib = require('lib')({token: process.env.STDLIB_SECRET_TOKEN});
+
+await lib.discord.channels['@0.3.2'].messages.create({
+  "channel_id": `${context.params.event.channel_id}`,
+  "content": `指令`,
+  "tts": false,
+  "embeds": [
+    {
+      "type": "rich",
+      "title": `早安`,
+      "description": `就是問早而已`,
+      "color": 0x00FFFF
+    }
+  ]
+});
