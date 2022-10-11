@@ -84,7 +84,7 @@ async def on_message(message):
     await client.process_commands(message)
     #私訊
     if message.guild == None:
-        return
+        
     result = service.spreadsheets().values().get(
     spreadsheetId=SpreadsheetId, range=rangeName).execute()
     values = result.get('values', [])
@@ -131,4 +131,13 @@ async def on_message(message):
 # Bot起動
 client.run(TOKEN)
 
+#現在時間
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+import time
+while True:
+    localtime = time.localtime()
+    result = time.strftime("%Y-%m-%d %I:%M:%S %p", localtime)
+    print(result)
+    time.sleep(1)
 
